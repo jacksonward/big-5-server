@@ -79,5 +79,5 @@ app.post("/testsubmit", function(req, res) {
 });
 
 app.listen(8080, function() {
-  console.log("Server running on port 80");
+  console.log("Server running on port 8080");
 });
