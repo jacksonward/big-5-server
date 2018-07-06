@@ -78,6 +78,6 @@ app.post("/testsubmit", function(req, res) {
   console.log("conscientiousness: " + conscientiousness); */
 });
 
-app.listen(8080, function() {
-  console.log("Server running on port 8080");
+app.listen(80, function() {
+  console.log("Server running on port 80");
 });
