@@ -1,6 +1,12 @@
+var fs = require("fs");
+var handlebars = require("handlebars");
+var inFile = "./hbs/report.hbs";
+var outFile = "./report.html";
+
 var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
+
 
 app.use(bodyParser.urlencoded({ extended: true}));
 
@@ -47,11 +53,29 @@ app.post("/testsubmit", function(req, res) {
       conscientiousness += parseInt(req.body[key]);
     }
   }
-  console.log("neuroticism: " + neuroticism);
+  var profile = {
+    neuroticism: neuroticism,
+    extroversion: extroversion,
+    openness: openness,
+    agreeableness: agreeableness,
+    conscientiousness: conscientiousness
+  };
+
+  var source = fs.readFileSync(inFile, "utf8");
+  var template = handlebars.compile(source, { strict: true });
+  var result = template(profile);
+
+  console.log(result);
+
+  fs.writeFileSync(outFile, result);
+  console.log(`File written to ${outFile}`)
+
+  res.sendFile(__dirname + "/report.html");
+/*   console.log("neuroticism: " + neuroticism);
   console.log("extroversion: " + extroversion);
   console.log("openness: " + openness);
   console.log("agreeableness: " + agreeableness);
-  console.log("conscientiousness: " + conscientiousness);
+  console.log("conscientiousness: " + conscientiousness); */
 });
 
 app.listen(8080, function() {
