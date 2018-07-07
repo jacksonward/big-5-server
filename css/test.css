@@ -1,0 +1,80 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #BFAFAF;
+}
+
+p, h1, h2, h3, h4 {
+  color: #220606;
+}
+
+.qgroup {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 10vh;
+  margin: auto;
+}
+
+.qgroup:nth-child(odd) {
+  background-color: #9A8686;
+}
+
+.question {
+  display: flex;
+  margin: auto;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #9A8686;
+}
+
+.qgroup:nth-child(odd) .question {
+  border-bottom: 2px solid #BFAFAF;
+}
+
+.responses {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  justify-content: space-around;
+}
+
+.option {
+  display: flex;
+  width: 10vw;
+  height: 40%;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.response > input { /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+
+.qgroup:nth-child(odd) .response > input + p { /* IMAGE STYLES */
+  cursor:pointer;
+  background-color: #BFAFAF;
+}
+
+.response > input + p { /* IMAGE STYLES */
+  cursor: pointer;
+  background-color: #9A8686;
+}
+
+.response > input:checked + p { /* (RADIO CHECKED) IMAGE STYLES */
+  background-color: #E8DEDE;
+}
+
+.qgroup:nth-child(odd) .response > input:checked + p { /* (RADIO CHECKED) IMAGE STYLES */
+  background-color: #E8DEDE;
+}

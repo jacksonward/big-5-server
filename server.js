@@ -7,9 +7,11 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
 
-
 app.use(bodyParser.urlencoded({ extended: true}));
 
+app.use(express.static("./"))
+
+//Trait Calculations
 app.post("/testsubmit", function(req, res) {
   var neuroticism = parseInt(0);
   var extroversion = parseInt(0);
@@ -71,11 +73,7 @@ app.post("/testsubmit", function(req, res) {
   console.log(`File written to ${outFile}`)
 
   res.sendFile(__dirname + "/report.html");
-/*   console.log("neuroticism: " + neuroticism);
-  console.log("extroversion: " + extroversion);
-  console.log("openness: " + openness);
-  console.log("agreeableness: " + agreeableness);
-  console.log("conscientiousness: " + conscientiousness); */
+
 });
 
 app.listen(8080, function() {
