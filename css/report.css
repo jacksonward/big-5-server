@@ -19,10 +19,13 @@ p, h1, h2, h3, h4 {
 }
 
 .explanation {
-  padding-top: 4vh;
-  padding-bottom: 4vh;
+  padding: 1vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
   text-align: center;
-  width: 60%;
+  width: 70%;
+  background-color: rgba(232, 222, 222, 0.5);
+  border-radius: 15px;
 }
 
 .overview-container {
@@ -31,7 +34,7 @@ p, h1, h2, h3, h4 {
   width: 70vw;
 }
 
-@media (min-width: 800px) and (max-width: 1000px) {
+@media (min-width: 800px) and (max-width: 1150px) {
   .overview-container{
     height: 40vh;
     width: 80vw;
@@ -43,12 +46,16 @@ p, h1, h2, h3, h4 {
     height: 50vh;
     width: 90vw;
   }
+  .explanation {
+    width: 90%;
+  }
 }
+
 
 .trait-container {
   position: relative;
   height: 30vh;
-  width: 35vw;
+  width: 45vw;
 }
 
 @media (min-width: 800px) and (max-width: 1000px) {
@@ -59,7 +66,7 @@ p, h1, h2, h3, h4 {
 
 @media /* (min-width: 800px) and  */(max-width: 799px) {
   .trait-container{
-    width: 45vw;
+    width: 100vw;
   }
 }
 
@@ -72,8 +79,26 @@ p, h1, h2, h3, h4 {
 }
 
 .description {
-  width: 35vw;
+  width: 45vw;
   text-align: center;
   margin-top: 1vh;
   margin-bottom: 2vh;
+  padding: 2vh;
+  background-color: rgba(232, 222, 222, 0.5);
+  border-radius: 15px;
+}
+
+.description h4 {
+  margin-bottom: 1vh;
+  padding-bottom: 1vh;
+  text-align: center;
+  border-bottom: #9A8686 solid 2px;
+}
+
+@media /* (min-width: 800px) and  */(max-width: 799px) {
+  .description{
+    width: 100vw;
+    margin: auto;
+    border-radius: 0px;
+  }
 }

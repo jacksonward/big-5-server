@@ -113,18 +113,16 @@ app.post("/testsubmit", function(req, res) {
     openness: openness,
     agreeableness: agreeableness,
     conscientiousness: conscientiousness,
-    npercentile: (ztable((neuroticism - 3.095192454) / 0.6716282482) * 100),
-    epercentile: (ztable((extroversion - 3.076565749) / 0.3522392277) * 100),
-    opercentile: (ztable((openness - 3.313479385) / 0.384431613) * 100),
-    apercentile: (ztable((agreeableness - 3.204935388) / 0.3543837412) * 100),
-    cpercentile: (ztable((conscientiousness - 3.154749227) / 0.3885176637) * 100)
+    npercentile: roundToTwo(ztable((neuroticism - 3.095192454) / 0.6716282482) * 100),
+    epercentile: roundToTwo(ztable((extroversion - 3.076565749) / 0.3522392277) * 100),
+    opercentile: roundToTwo(ztable((openness - 3.313479385) / 0.384431613) * 100),
+    apercentile: roundToTwo(ztable((agreeableness - 3.204935388) / 0.3543837412) * 100),
+    cpercentile: roundToTwo(ztable((conscientiousness - 3.154749227) / 0.3885176637) * 100)
   };
 
   var source = fs.readFileSync(inFile, "utf8");
   var template = handlebars.compile(source, { strict: true });
   var result = template(profile);
-
-  console.log(result);
 
   fs.writeFileSync(outFile, result);
   console.log(`File written to ${outFile}`)

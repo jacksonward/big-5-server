@@ -127,9 +127,13 @@ button {
 @media (max-width: 699px) {
   .qgroup {
     width: 100%;
+    border-radius: 0px;
+  }
+  .responses {
+    width: 100%;
   }
   .option {
-    width: 15vw;
+    width: 18vw;
   }
 }
 
