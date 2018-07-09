@@ -22,7 +22,7 @@
 			  labels: ["Neuroticism", "Extroversion", "Openness", "Agreeableness", "Conscientiousness"],
 			  datasets: [{
 				  label: 'My Trait',
-				  data: [{{neuroticism}}, {{extroversion}}, {{openness}}, {{agreeableness}}, {{conscientiousness}}],
+				  data: [1, 2, 3, 4, 5],
 				  backgroundColor: [
 					  'rgba(255, 99, 132, 0.2)',
 					  'rgba(54, 162, 235, 0.2)',
@@ -88,9 +88,7 @@
 	<p class="explanation">
 		Each trait falls somewhere between 1 and 5, with 1 being the lowest possible trait value and 5 being the highest.
 		For example, someone with an Agreeableness trait of 4.5 might be considered very agreeable, whereas someone with 
-		an agreeableness trait of 2 might be considered fairly disagreeable. <br> <br>
-		A quick note: percentile ranks compare you to others in the population. For example, a percentile rank of 70
-		in agreeableness means you are more agreeable than 70% of the population.
+		an agreeableness trait of 2 might be considered fairly disagreeable.
 	</p>
 	<h1>Trait Analysis</h1>
 	<div class="trait-section">
@@ -98,44 +96,30 @@
 			<div class="trait-container">
 				<canvas id="n-chart" width="200" height="200"></canvas>
 			</div>
-			<div class="description">
-				<h4>Percentile Rank: {{npercentile}}</h4>
-			</div>
+			<p class="description"></p>
 		</div>
 		<div class="ind-trait">
 			<div class="trait-container">
 				<canvas id="e-chart" width="200" height="200"></canvas>
-			</div>
-			<div class="description">
-				<h4>Percentile Rank: {{epercentile}}</h4>
 			</div>
 		</div>
 		<div class="ind-trait">
 				<div class="trait-container">
 					<canvas id="o-chart" width="200" height="200"></canvas>
 				</div>
-			<div class="description">
-				<h4>Percentile Rank: {{opercentile}}</h4>
-			</div>
 		</div>
 		<div class="ind-trait">
 				<div class="trait-container">
 					<canvas id="a-chart" width="200" height="200"></canvas>
 				</div>
-			<div class="description">
-				<h4>Percentile Rank: {{apercentile}}</h4>
-			</div>
 		</div>
 		<div class="ind-trait">
 				<div class="trait-container">
 					<canvas id="c-chart" width="200" height="200"></canvas>
 				</div>
-			<div class="description">
-				<h4>Percentile Rank: {{cpercentile}}</h4>
-			</div>
 				<script>
 					var n_chartData = {
-						datasets: [
+					datasets: [
 						{
 							data: [
 								{x:1, y:0.004576815021},
@@ -164,10 +148,10 @@
 							backgroundColor: "rgba(255, 99, 132, 0.2)",
 							borderColor: "rgba(255,99,132,1)"
 						}
-						]
-					};
+					]
+				};
 					var e_chartData = {
-						datasets: [
+					datasets: [
 						{
 							data: [
 							{x:1.0, y:0.00000003214723514195},
@@ -196,8 +180,8 @@
 							borderColor: "rgba(54, 162, 235, 1)",
 							pointRadius: 0,
 						}
-						]
-					};
+					]
+				};
 					var o_chartData = {
 						datasets: [
 							{
@@ -318,7 +302,7 @@
 											type: "line",
 											mode: "vertical",
 											scaleID: "x-axis-0",
-											value: {{neuroticism}},
+											value: 1.5,
 											borderColor: "rgba(255, 99, 132, 1)",
 											borderWidth: 3,
 											label: {
@@ -380,7 +364,7 @@
 											type: "line",
 											mode: "vertical",
 											scaleID: "x-axis-0",
-											value: {{extroversion}},
+											value: 1.5,
 											borderColor: "rgba(54, 162, 235, 1)",
 											borderWidth: 3,
 											label: {
@@ -442,7 +426,7 @@
 											type: "line",
 											mode: "vertical",
 											scaleID: "x-axis-0",
-											value: {{openness}},
+											value: 1.5,
 											borderColor: "rgba(255, 206, 86, 1)",
 											borderWidth: 3,
 											label: {
@@ -504,7 +488,7 @@
 											type: "line",
 											mode: "vertical",
 											scaleID: "x-axis-0",
-											value: {{agreeableness}},
+											value: 1.5,
 											borderColor: "rgba(75, 192, 192, 1)",
 											borderWidth: 3,
 											label: {
@@ -566,7 +550,7 @@
 											type: "line",
 											mode: "vertical",
 											scaleID: "x-axis-0",
-											value: {{conscientiousness}},
+											value: 1.5,
 											borderColor: "rgba(153, 102, 255, 1)",
 											borderWidth: 3,
 											label: {

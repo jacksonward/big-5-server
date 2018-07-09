@@ -3,14 +3,612 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+  <link rel="stylesheet" href="css/report.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.5/chartjs-plugin-annotation.js"></script>
   <title>Big 5 Report</title>
 </head>
 <body>
-  <h1>Five Factor Profile</h1>
-  <p>Neuroticism: 0</p>
-  <p>Extroversion: 0</p>
-  <p>Openness: 0</p>
-  <p>Agreeableness: 0</p>
-  <p>Conscientiousness: 0</p>
+  <div class="overview-container">
+  	<canvas id="overview" width="200" height="200"></canvas>
+  </div>
+	<script>
+	  var ctx = document.getElementById("overview").getContext('2d');
+	  var myChart = new Chart(ctx, {
+			scaleFontColor: "#220606",
+		  type: 'bar',
+		  data: {
+			  labels: ["Neuroticism", "Extroversion", "Openness", "Agreeableness", "Conscientiousness"],
+			  datasets: [{
+				  label: 'My Trait',
+				  data: [3, 3, 3, 3, 3],
+				  backgroundColor: [
+					  'rgba(255, 99, 132, 0.2)',
+					  'rgba(54, 162, 235, 0.2)',
+					  'rgba(255, 206, 86, 0.2)',
+					  'rgba(75, 192, 192, 0.2)',
+					  'rgba(153, 102, 255, 0.2)',
+					  'rgba(255, 159, 64, 0.2)'
+				  ],
+				  borderColor: [
+					  'rgba(255,99,132,1)',
+					  'rgba(54, 162, 235, 1)',
+					  'rgba(255, 206, 86, 1)',
+					  'rgba(75, 192, 192, 1)',
+					  'rgba(153, 102, 255, 1)',
+					  'rgba(255, 159, 64, 1)'
+				  ],
+				  borderWidth: 2
+			  }, {
+				  label: 'Average of Others',
+				  data: [3.095192454, 3.076565749, 3.313479385, 3.204935388, 3.154749227]
+
+			  }]
+		  },
+		  options: {
+				title: {
+					display: true,
+					text: "Your Personality",
+					fontFamily: "'Roboto', 'Arial', 'sans-serif'",
+					fontSize: 40,
+					fontColor: "#220606"
+				},
+				legend: {
+					labels: {
+						fontColor: "#220606"
+					}
+				},
+				defaultFontFamily: "'Roboto', 'Arial', 'sans-serif'",
+				defaultFontSize: 20,
+				defaultFontColor: "220606",
+				responsive: true,
+				maintainAspectRatio: false,
+				scales: {
+					xAxes: [{
+						ticks: {
+							autoSkip: false,
+							fontColor: "#220606",
+							fontSize: 16
+						}
+						}],
+					yAxes: [{
+						ticks: {
+							suggestedMin: 0,
+							suggestedMax: 5,
+							fontColor: "#220606",
+							fontSize: 16,
+							beginAtZero: true
+							}
+						}]
+					}
+		  }
+	  });
+	</script>
+	<p class="explanation">
+		Each trait falls somewhere between 1 and 5, with 1 being the lowest possible trait value and 5 being the highest.
+		For example, someone with an Agreeableness trait of 4.5 might be considered very agreeable, whereas someone with 
+		an agreeableness trait of 2 might be considered fairly disagreeable. <br> <br>
+		A quick note: percentile ranks compare you to others in the population. For example, a percentile rank of 70
+		in agreeableness means you are more agreeable than 70% of the population.
+	</p>
+	<h1>Trait Analysis</h1>
+	<div class="trait-section">
+		<div class="ind-trait">
+			<div class="trait-container">
+				<canvas id="n-chart" width="200" height="200"></canvas>
+			</div>
+			<div class="description">
+				<h4>Percentile Rank: 44.43</h4>
+			</div>
+		</div>
+		<div class="ind-trait">
+			<div class="trait-container">
+				<canvas id="e-chart" width="200" height="200"></canvas>
+			</div>
+			<div class="description">
+				<h4>Percentile Rank: 41.68</h4>
+			</div>
+		</div>
+		<div class="ind-trait">
+				<div class="trait-container">
+					<canvas id="o-chart" width="200" height="200"></canvas>
+				</div>
+			<div class="description">
+				<h4>Percentile Rank: 20.9</h4>
+			</div>
+		</div>
+		<div class="ind-trait">
+				<div class="trait-container">
+					<canvas id="a-chart" width="200" height="200"></canvas>
+				</div>
+			<div class="description">
+				<h4>Percentile Rank: 28.43</h4>
+			</div>
+		</div>
+		<div class="ind-trait">
+				<div class="trait-container">
+					<canvas id="c-chart" width="200" height="200"></canvas>
+				</div>
+			<div class="description">
+				<h4>Percentile Rank: 34.83</h4>
+			</div>
+				<script>
+					var n_chartData = {
+						datasets: [
+						{
+							data: [
+								{x:1, y:0.004576815021},
+								{x:1.2, y:0.01108534101},
+								{x:1.4, y:0.02457104418},
+								{x:1.6, y:0.04984103205},
+								{x:1.8, y:0.0925207828},
+								{x:2, y:0.1571738997},
+								{x:2.2, y:0.2443489163},
+								{x:2.4, y:0.3476396179},
+								{x:2.6, y:0.4526233647},
+								{x:2.8, y:0.539303864},
+								{x:3, y:0.5880563626},
+								{x:3.2, y:0.586804226},
+								{x:3.4, y:0.5358662074},
+								{x:3.6, y:0.4478250331},
+								{x:3.8, y:0.3424910452},
+								{x:4, y:0.2397060158},
+								{x:4.2, y:0.1535315039},
+								{x:4.4, y:0.08999221328},
+								{x:4.6, y:0.04827265883},
+								{x:4.8, y:0.02369661789},
+								{x:5, y:0.0106453604}],
+								
+							pointRadius: 0,
+							backgroundColor: "rgba(255, 99, 132, 0.2)",
+							borderColor: "rgba(255,99,132,1)"
+						}
+						]
+					};
+					var e_chartData = {
+						datasets: [
+						{
+							data: [
+							{x:1.0, y:0.00000003214723514195},
+							{x:1.2, y:0.00000077780319755499},
+							{x:1.4, y:0.0000136327245544213},
+							{x:1.6, y:0.000173094167473},
+							{x:1.8, y:0.0015920952514403},
+							{x:2.0, y:0.0106082195223683},
+							{x:2.2, y:0.051203870201856},
+							{x:2.4, y:0.179039936937765},
+							{x:2.6, y:0.453506883059907},
+							{x:2.8, y:0.83215588353705},
+							{x:3.0, y:1.10614569068931},
+							{x:3.2, y:1.06514029315185},
+							{x:3.4, y:0.742998837972865},
+							{x:3.6, y:0.375453617965446},
+							{x:3.8, y:0.137439412881212},
+							{x:4.0, y:0.0364462732869391},
+							{x:4.2, y:0.00700135021245128},
+							{x:4.4, y:0.000974310347583334},
+							{x:4.6, y:0.0000982199404532679},
+							{x:4.8, y:0.00000717280222966508},
+							{x:5.0, y:0.00000037945902372752}],
+							
+							backgroundColor: "rgba(54, 162, 235, 0.2)",
+							borderColor: "rgba(54, 162, 235, 1)",
+							pointRadius: 0,
+						}
+						]
+					};
+					var o_chartData = {
+						datasets: [
+							{
+								data: [
+								{x:1.0, y:0.0000000141912455736},
+								{x:1.2, y:0.00000028375501248241},
+								{x:1.4, y:0.00000432833672514484},
+								{x:1.6, y:0.0000503678030442194},
+								{x:1.8, y:0.000447135804611572},
+								{x:2.0, y:0.00302817073533691},
+								{x:2.2, y:0.0156450061959461},
+								{x:2.4, y:0.061663133729869},
+								{x:2.6, y:0.185408617334732},
+								{x:2.8, y:0.425293465067687},
+								{x:3.0, y:0.744221093003705},
+								{x:3.2, y:0.993504208307053},
+								{x:3.4, y:1.01179357729395},
+								{x:3.6, y:0.786083347859887},
+								{x:3.8, y:0.465907547136839},
+								{x:4.0, y:0.210661593822477},
+								{x:4.2, y:0.0726650299190197},
+								{x:4.4, y:0.0191214146239577},
+								{x:4.6, y:0.00383856634896984},
+								{x:4.8, y:0.00058785816635039},
+								{x:5.0, y:0.0000686800386009074}],
+								
+								backgroundColor: "rgba(255, 206, 86, 0.2)",
+								borderColor: "rgba(255, 206, 86, 1)",
+								pointRadius: 0,
+							}
+						]
+					};
+					var a_chartData = {
+						datasets: [
+							{
+								data: [
+								{x:1.0, y:0.00000000441835259249},
+								{x:1.2, y:0.00000012620398120156},
+								{x:1.4, y:0.00000262157326464925},
+								{x:1.6, y:0.0000396029194713139},
+								{x:1.8, y:0.000435079544526076},
+								{x:2.0, y:0.00347605297887058},
+								{x:2.2, y:0.0201966978310677},
+								{x:2.4, y:0.0853396010155034},
+								{x:2.6, y:0.262238895752793},
+								{x:2.8, y:0.586030023127313},
+								{x:3.0, y:0.952398897343282},
+								{x:3.2, y:1.12562611657086},
+								{x:3.4, y:0.967488245418181},
+								{x:3.6, y:0.604746679854177},
+								{x:3.8, y:0.27490177713156},
+								{x:4.0, y:0.0908778117927531},
+								{x:4.2, y:0.0218481382085377},
+								{x:4.4, y:0.00381985842301869},
+								{x:4.6, y:0.000485686864819817},
+								{x:4.8, y:0.0000449098608166591},
+								{x:5.0, y:0.00000301997480053798}],
+								
+								backgroundColor: "rgba(75, 192, 192, 0.2)",
+								borderColor: "rgba(75, 192, 192, 1)",
+								pointRadius: 0,
+							}
+						]
+					};
+					var c_chartData = {
+						datasets: [
+							{
+								data: [
+								{x:1.0, y:0.0000002149174350137},
+								{x:1.2, y:0.00000327067002882764},
+								{x:1.4, y:0.000038187017678437},
+								{x:1.6, y:0.000342065033217706},
+								{x:1.8, y:0.00235079928357218},
+								{x:2.0, y:0.0123947093182335},
+								{x:2.2, y:0.0501384692954331},
+								{x:2.4, y:0.155603630062398},
+								{x:2.6, y:0.370494961511818},
+								{x:2.8, y:0.676797610257725},
+								{x:3.0, y:0.94852603394984},
+								{x:3.2, y:1.01989067885372},
+								{x:3.4, y:0.84134073851848},
+								{x:3.6, y:0.532481032757202},
+								{x:3.8, y:0.258553425086208},
+								{x:4.0, y:0.0963186476867017},
+								{x:4.2, y:0.0275286165263518},
+								{x:4.4, y:0.00603632096610902},
+								{x:4.6, y:0.00101548658559564},
+								{x:4.8, y:0.000131065982038121},
+								{x:5.0, y:0.0000129783567957114}],
+								
+								backgroundColor: "rgba(153, 102, 255, 0.2)",
+								borderColor: "rgba(153, 102, 255, 1)",
+								pointRadius: 0,
+							}
+						]
+					};
+					
+					window.onload = function() {
+						var n_ctx = document.getElementById("n-chart").getContext("2d");
+						new Chart(n_ctx, {
+							type: "line",
+							data: n_chartData,
+							options: {
+								legend: {
+									display: false
+								},
+								title: {
+									display: true,
+									text: "Neuroticism",
+									fontFamily: "'Roboto', 'Arial', 'sans-serif'",
+									fontSize: 30,
+									fontColor: "#220606"
+								},
+								maintainAspectRatio: false,
+								annotation: {
+									annotations: [
+										{
+											type: "line",
+											mode: "vertical",
+											scaleID: "x-axis-0",
+											value: 3,
+											borderColor: "rgba(255, 99, 132, 1)",
+											borderWidth: 3,
+											label: {
+												content: "You",
+												enabled: true,
+												position: "middle"
+											}
+										}
+									]
+								},
+								scales: {
+									xAxes: [{
+										type: "linear",
+										ticks: {
+											fontColor: "#220606",
+											fontSize: 16,
+											autoSkip: true
+										}
+									}],
+									yAxes: [{
+										scaleLabel: {
+											display: true,
+											labelString: "Density of Probability"
+										},
+										ticks: {
+											// Include a percent sign in the ticks
+											callback: function(value, index, values) {
+													return (value);
+											},
+											suggestedMin: 0,
+											suggestedMax: .6,
+											stepSize: .2,
+											fontColor: "#220606",
+											fontSize: 16,
+										}
+									}]
+								}
+							}
+						});
+						var e_ctx = document.getElementById("e-chart").getContext("2d");
+						new Chart(e_ctx, {
+							type: "line",
+							data: e_chartData,
+							options: {
+								legend: {
+									display: false
+								},
+								title: {
+									display: true,
+									text: "Extroversion",
+									fontFamily: "'Roboto', 'Arial', 'sans-serif'",
+									fontSize: 30,
+									fontColor: "#220606"
+								},
+								maintainAspectRatio: false,
+								annotation: {
+									annotations: [
+										{
+											type: "line",
+											mode: "vertical",
+											scaleID: "x-axis-0",
+											value: 3,
+											borderColor: "rgba(54, 162, 235, 1)",
+											borderWidth: 3,
+											label: {
+												content: "You",
+												enabled: true,
+												position: "middle"
+											}
+										}
+									]
+								},
+								scales: {
+									xAxes: [{
+										type: "linear",
+										ticks: {
+											fontColor: "#220606",
+											fontSize: 16,
+											autoSkip: true
+										}
+									}],
+									yAxes: [{
+										scaleLabel: {
+											display: true,
+											labelString: "Density of Probability"
+										},
+										ticks: {
+											// Include a percent sign in the ticks
+											callback: function(value, index, values) {
+													return (value);
+											},
+											suggestedMin: 0,
+											suggestedMax: .6,
+											stepSize: .2,
+											fontColor: "#220606",
+											fontSize: 16,
+										}
+									}]
+								}
+							}
+						});
+						var o_ctx = document.getElementById("o-chart").getContext("2d");
+						new Chart(o_ctx, {
+							type: "line",
+							data: o_chartData,
+							options: {
+								legend: {
+									display: false
+								},
+								title: {
+									display: true,
+									text: "Openness",
+									fontFamily: "'Roboto', 'Arial', 'sans-serif'",
+									fontSize: 30,
+									fontColor: "#220606"
+								},
+								maintainAspectRatio: false,
+								annotation: {
+									annotations: [
+										{
+											type: "line",
+											mode: "vertical",
+											scaleID: "x-axis-0",
+											value: 3,
+											borderColor: "rgba(255, 206, 86, 1)",
+											borderWidth: 3,
+											label: {
+												content: "You",
+												enabled: true,
+												position: "middle"
+											}
+										}
+									]
+								},
+								scales: {
+									xAxes: [{
+										type: "linear",
+										ticks: {
+											fontColor: "#220606",
+											fontSize: 16,
+											autoSkip: true
+										}
+									}],
+									yAxes: [{
+										scaleLabel: {
+											display: true,
+											labelString: "Density of Probability"
+										},
+										ticks: {
+											// Include a percent sign in the ticks
+											callback: function(value, index, values) {
+													return (value);
+											},
+											suggestedMin: 0,
+											suggestedMax: .6,
+											stepSize: .2,
+											fontColor: "#220606",
+											fontSize: 16,
+										}
+									}]
+								}
+							}
+						});
+						var a_ctx = document.getElementById("a-chart").getContext("2d");
+						new Chart(a_ctx, {
+							type: "line",
+							data: a_chartData,
+							options: {
+								legend: {
+									display: false
+								},
+								title: {
+									display: true,
+									text: "Agreeableness",
+									fontFamily: "'Roboto', 'Arial', 'sans-serif'",
+									fontSize: 30,
+									fontColor: "#220606"
+								},
+								maintainAspectRatio: false,
+								annotation: {
+									annotations: [
+										{
+											type: "line",
+											mode: "vertical",
+											scaleID: "x-axis-0",
+											value: 3,
+											borderColor: "rgba(75, 192, 192, 1)",
+											borderWidth: 3,
+											label: {
+												content: "You",
+												enabled: true,
+												position: "middle"
+											}
+										}
+									]
+								},
+								scales: {
+									xAxes: [{
+										type: "linear",
+										ticks: {
+											fontColor: "#220606",
+											fontSize: 16,
+											autoSkip: true
+										}
+									}],
+									yAxes: [{
+										scaleLabel: {
+											display: true,
+											labelString: "Density of Probability"
+										},
+										ticks: {
+											// Include a percent sign in the ticks
+											callback: function(value, index, values) {
+													return (value);
+											},
+											suggestedMin: 0,
+											suggestedMax: .6,
+											stepSize: .2,
+											fontColor: "#220606",
+											fontSize: 16,
+										}
+									}]
+								}
+							}
+						});
+						var c_ctx = document.getElementById("c-chart").getContext("2d");
+						new Chart(c_ctx, {
+							type: "line",
+							data: c_chartData,
+							options: {
+								legend: {
+									display: false
+								},
+								title: {
+									display: true,
+									text: "Conscientiousness",
+									fontFamily: "'Roboto', 'Arial', 'sans-serif'",
+									fontSize: 30,
+									fontColor: "#220606"
+								},
+								maintainAspectRatio: false,
+								annotation: {
+									annotations: [
+										{
+											type: "line",
+											mode: "vertical",
+											scaleID: "x-axis-0",
+											value: 3,
+											borderColor: "rgba(153, 102, 255, 1)",
+											borderWidth: 3,
+											label: {
+												content: "You",
+												enabled: true,
+												position: "middle"
+											}
+										}
+									]
+								},
+								scales: {
+									xAxes: [{
+										type: "linear",
+										ticks: {
+											fontColor: "#220606",
+											fontSize: 16,
+											autoSkip: true
+										}
+									}],
+									yAxes: [{
+										scaleLabel: {
+											display: true,
+											labelString: "Density of Probability"
+										},
+										ticks: {
+											// Include a percent sign in the ticks
+											callback: function(value, index, values) {
+													return (value);
+											},
+											suggestedMin: 0,
+											suggestedMax: .6,
+											stepSize: .2,
+											fontColor: "#220606",
+											fontSize: 16,
+										}
+									}]
+								}
+							}
+						});
+					};
+				</script>
+		</div>
+	</div>
 </body>
 </html>

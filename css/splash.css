@@ -11,6 +11,9 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #BFAFAF;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
 }
 
 p, h1, h2, h3, h4 {
@@ -40,6 +43,61 @@ header img {
   height: 5%;
   width: 5%;
   bottom: 0;
+}
+
+a {
+  color: #220606;
+  background-color: #9A8686;
+  text-decoration: none;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  flex-wrap: wrap;
+  background-color: #9A8686;
+}
+
+.trait-group {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  flex-wrap: wrap;
+  background-color: #9A8686;
+}
+
+.info h1 {
+  width: 100%;
+  padding: 5vh;
+  margin: auto;
+}
+
+.info .trait {
+  width: 45%;
+  margin: 1vh auto;
+  background-color: #BFAFAF;
+  border-radius: 10px;
+}
+
+.trait h2 {
+  margin: auto;
+  padding-top: 1.5vh;
+  padding-bottom: .5vh;
+  border-bottom: 2px solid #9A8686;
+  text-align: center;
+}
+
+.trait p {
+  width: 80%;
+  margin: auto;
+  padding: 2vh;
 }
 
 .splash {

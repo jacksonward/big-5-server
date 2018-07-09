@@ -13,8 +13,39 @@ body {
   background-color: #BFAFAF;
 }
 
+.intro {
+  width: 60%;
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+}
+
 p, h1, h2, h3, h4 {
   color: #220606;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  font-size: 20px;
+  color: #9A8686;
+  background-color: #220606;
+  border: 0;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  margin-top: 2vh;
+  cursor: pointer;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2vh;
 }
 
 .qgroup {
@@ -23,6 +54,7 @@ p, h1, h2, h3, h4 {
   width: 70%;
   height: 10vh;
   margin: auto;
+  border-radius: 10px;
 }
 
 .qgroup:nth-child(odd) {
@@ -34,6 +66,7 @@ p, h1, h2, h3, h4 {
   margin: auto;
   padding-bottom: 5px;
   border-bottom: 2px solid #9A8686;
+  text-align: center;
 }
 
 .qgroup:nth-child(odd) .question {
@@ -53,7 +86,51 @@ p, h1, h2, h3, h4 {
   height: 40%;
   justify-content: center;
   align-items: center;
+  text-align: center;
   user-select: none;
+  border-radius: 5px;
+}
+
+@media (min-width: 800px) and (max-width: 1500px) {
+  .option {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 799px) {
+  .option {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 350px) and (max-width: 599px) {
+  .option {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 349px) {
+  .option {
+    font-size: 8px;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 950px) {
+  .qgroup {
+    width: 90%;
+  }
+  .option {
+    width: 12vw;
+  }
+}
+
+@media (max-width: 699px) {
+  .qgroup {
+    width: 100%;
+  }
+  .option {
+    width: 15vw;
+  }
 }
 
 .response > input { /* HIDE RADIO */
