@@ -1,0 +1,26 @@
+{
+  "name": "big-5-server",
+  "version": "1.0.0",
+  "description": "Big 5 Personality Test",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.3",
+    "handlebars": "^4.0.11",
+    "ztable": "^1.0.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacksonward/big-5-server.git"
+  },
+  "author": "Jackson Ward",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jacksonward/big-5-server/issues"
+  },
+  "homepage": "https://github.com/jacksonward/big-5-server#readme"
+}
